@@ -1,0 +1,78 @@
+---
+const testimonials = [
+  {
+    name: 'Rebecca Hayes',
+    description: 'CTO, TechFlow',
+    image: '/assets/testimonial-1.webp',
+    message:
+      '“Finding a development partner who truly understands our business goals was a challenge until we met ITECHON. Their team didn’t just write code; they architected a solution that scaled with our user base. The quality of work and technical depth they bring to the table is unmatched.”',
+  },
+  {
+    name: 'Rosa Spencer',
+    description: 'Product Lead, InnovateX',
+    image: '/assets/testimonial-2.webp',
+    message:
+      '“What impressed me most was their transparent communication and structured process. We were always in the loop, and they delivered every milestone on time. It felt less like outsourcing and more like an extension of our own team. Highly reliable and professional.”',
+  },
+  {
+    name: 'Christina Upton',
+    description: 'Founder, StartUp Inc',
+    image: '/assets/testimonial-3.webp',
+    message:
+      '“We needed a complex MVP built under a tight deadline, and ITECHON delivered beyond our expectations. The UI/UX is intuitive, and the backend is rock solid. Their ability to solve complex problems quickly saved us weeks of development time.”',
+  },
+];
+---
+
+<section class="py-16 sm:py-20 relative overflow-hidden">
+  <!-- Top Highlight -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-gradient-to-r from-transparent via-[#FFBD33]/50 to-transparent blur-sm"></div>
+
+  <div class="v mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative">
+      <!-- Background Blobs -->
+      <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+          <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[300px] h-[300px] bg-[#FFBD33]/5 rounded-full blur-[80px]"></div>
+          <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-primary-500/10 rounded-full blur-[80px]"></div>
+      </div>
+    <div class="flex flex-col items-center gap-12 lg:gap-20">
+      <h2 class="mx-auto max-w-xl text-center text-3xl font-medium tracking-tight sm:text-4xl">
+        Trusted by the largest companies in the world
+      </h2>
+      <div
+        class="divide-primary-900/10 dark:divide-primary-300/10 grid divide-y lg:grid-cols-3 lg:divide-x lg:divide-y-0"
+      >
+        {
+          testimonials.map((testimonial) => (
+            <figure class="mx-auto flex max-w-lg flex-col items-center gap-6 py-8 lg:px-8 lg:py-0">
+              <div class="flex flex-row gap-2">
+                {[...Array(5)].map(() => (
+                  <svg
+                    class="text-[#FFBD33] h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" />
+                  </svg>
+                ))}
+              </div>
+              <blockquote class="text-primary-950/70 dark:text-primary-200/70 text-center text-lg italic leading-loose">
+                <p>{testimonial.message}</p>
+              </blockquote>
+              <figcaption class="flex flex-col gap-4">
+                <img class="mx-auto h-8 w-8 rounded-full" src={testimonial.image} alt="" />
+                <div class="text-center">
+                  <div class="text-base font-medium">{testimonial.name}</div>
+                  <div class="text-primary-950/70 dark:text-primary-200/70 text-sm">
+                    {testimonial.description}
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

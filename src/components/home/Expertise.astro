@@ -1,0 +1,147 @@
+---
+const categories = [
+  {
+    id: 'next-gen',
+    title: 'Next-Gen',
+    items: [
+      { name: 'AI ML Solutions', icon: '/assets/technologystacks/ai.svg' },
+      { name: 'Business Intelligence Solutions', icon: '/assets/technologystacks/bis.svg' },
+      { name: 'Microservices Architecture', icon: '/assets/technologystacks/mricro-architecture.svg' },
+      { name: 'Serverless Architecture', icon: '/assets/technologystacks/serveriess-arch.svg' },
+      { name: 'RPA Services', icon: '/assets/technologystacks/rpa.svg' },
+      { name: 'Internet of Things (IoT)', icon: '/assets/technologystacks/iot.svg' },
+    ],
+  },
+  {
+    id: 'mobile-app',
+    title: 'Mobile App',
+    items: [
+      { name: 'React Native', icon: '/assets/technologystacks/react-native.svg' },
+      { name: 'Flutter', icon: '/assets/technologystacks/flutter.svg' },
+      { name: 'Android', icon: '/assets/technologystacks/android.svg' },
+      { name: 'iOS', icon: '/assets/technologystacks/ios.svg' },
+      { name: 'Progressive Web App', icon: '/assets/technologystacks/pwa.svg' },
+      { name: 'Cross Platform', icon: '/assets/technologystacks/hybrid.svg' },
+    ],
+  },
+  {
+    id: 'cms',
+    title: 'CMS',
+    items: [
+      { name: 'Typo3', icon: '/assets/technologystacks/typo3.svg' },
+      { name: 'WordPress', icon: '/assets/technologystacks/wordpress.svg' },
+      { name: 'Drupal', icon: '/assets/technologystacks/drupal.svg' },
+      { name: 'MODX', icon: '/assets/technologystacks/modx.svg' },
+      { name: 'DotNetNuke', icon: '/assets/technologystacks/dnn.svg' },
+    ],
+  },
+  {
+    id: 'ecommerce',
+    title: 'eCommerce',
+    items: [
+      { name: 'Shopify', icon: '/assets/technologystacks/shopify.svg' },
+      { name: 'Magento', icon: '/assets/technologystacks/magento.svg' },
+      { name: 'WooCommerce', icon: '/assets/technologystacks/woocommerce.svg' },
+      { name: 'nopCommerce', icon: '/assets/technologystacks/nopcommerce.svg' },
+    ],
+  },
+  {
+    id: 'frontend',
+    title: 'Frontend',
+    items: [
+      { name: 'ReactJS', icon: '/assets/technologystacks/react-native.svg' },
+      { name: 'AngularJS', icon: '/assets/technologystacks/angularjs.svg' },
+      { name: 'Typescript', icon: '/assets/technologystacks/typescript.svg' },
+      { name: 'Javascript', icon: '/assets/technologystacks/javascript.svg' },
+      { name: 'Backbone.js', icon: '/assets/technologystacks/backbone.svg' },
+      { name: 'UI/UX Design', icon: '/assets/technologystacks/ui-ux.svg' },
+    ],
+  },
+  {
+    id: 'backend',
+    title: 'Backend',
+    items: [
+      { name: 'Python', icon: '/assets/technologystacks/python.svg' },
+      { name: 'Java', icon: '/assets/technologystacks/java.svg' },
+      { name: '.NET', icon: '/assets/technologystacks/dotnet.svg' },
+      { name: 'PHP', icon: '/assets/technologystacks/php.svg' },
+      { name: 'Node.js', icon: '/assets/technologystacks/node.svg' },
+      { name: 'Laravel', icon: '/assets/technologystacks/laravel.svg' },
+      { name: 'Symfony', icon: '/assets/technologystacks/symfony.svg' },
+      { name: 'CodeIgniter', icon: '/assets/technologystacks/codeigniter.svg' },
+      { name: 'CakePHP', icon: '/assets/technologystacks/cakephp.svg' },
+      { name: 'RoR', icon: '/assets/technologystacks/ror.svg' },
+      { name: 'Django', icon: '/assets/technologystacks/django.svg' },
+    ],
+  },
+  {
+    id: 'devops',
+    title: 'DevOps',
+    items: [
+      { name: 'DevOps Automation', icon: '/assets/technologystacks/devops.svg' },
+      { name: 'Amazon AWS', icon: '/assets/technologystacks/aws.svg' },
+      { name: 'Google Cloud (GCP)', icon: '/assets/technologystacks/gcp.svg' },
+      { name: 'Azure', icon: '/assets/technologystacks/azure.svg' },
+      { name: 'CI CD', icon: '/assets/technologystacks/ci-cd.svg' },
+      { name: 'Jenkins', icon: '/assets/technologystacks/jenkins.svg' },
+    ],
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-12 sm:gap-16">
+      <div class="flex flex-col gap-4 text-center mx-auto">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-center">Core Expertise Vouched by CTOs Globally</h2>
+        <p class="text-primary-950/70 dark:text-primary-200/70 text-lg sm:text-xl text-center">
+          We are the architects of digital innovation. We continue our legacy to lead the Artifical Intelligence development, Mobile Apps, Web development and offshore IT outsourcing market with our exceptional customized software development services for our esteemed clientele globally.
+        </p>
+      </div>
+
+      <div x-data="{ activeTab: 'next-gen' }" class="flex flex-col gap-8 items-center">
+        {/* Toggle Buttons */}
+        <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
+          {categories.map((category) => (
+            <button
+              x-on:click={`activeTab = '${category.id}'`}
+              x-bind:class={`activeTab === '${category.id}' ? 'bg-[#FFBD33] text-primary-950 dark:bg-[#FFBD33] dark:text-primary-950 ring-2 ring-[#FFBD33]' : 'bg-primary-500/10 text-primary-950 dark:bg-primary-400/10 dark:text-primary-200 hover:bg-primary-500/20 dark:hover:bg-primary-400/20 ring-0'`}
+              class="rounded-lg px-6 py-3 text-base font-medium transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+            >
+              {category.title}
+            </button>
+          ))}
+        </div>
+
+        {/* Content Area */}
+        <div class="mt-4 w-full">
+          {categories.map((category) => (
+            <div
+              x-show={`activeTab === '${category.id}'`}
+              class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6 justify-items-center"
+              x-cloak
+              x-transition:enter="transition ease-out duration-300 transform"
+              x-transition:enter-start="opacity-0 scale-95"
+              x-transition:enter-end="opacity-100 scale-100"
+            >
+              {category.items.map((item) => (
+                <div class="group flex flex-col items-center gap-4 text-center w-full">
+                  <div class="h-16 w-16 p-2 rounded-2xl bg-primary-500/5 dark:bg-primary-400/5 flex items-center justify-center text-primary-600 dark:text-primary-300 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,189,51,0.1)]">
+                     {/* Icon with Color Mask */}
+                    <div
+                      class="h-10 w-10 bg-current transition-colors duration-300 group-hover:text-[#FFBD33]"
+                      style={`mask-image: url(${item.icon}); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url(${item.icon}); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;`}
+                    />
+                  </div>
+                  <span class="text-base font-medium text-primary-950 dark:text-primary-200 transition-colors duration-300">
+                    {item.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

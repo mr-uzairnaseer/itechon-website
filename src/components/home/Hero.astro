@@ -1,0 +1,117 @@
+<section class="py-8 sm:py-12">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-12">
+      <div 
+        class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-8 lg:items-center"
+        x-data="{ 
+          activeSlide: 0, 
+          slides: [
+            {
+              image: '/assets/hero1.png',
+              heading: 'Custom Code, Zero Limits.',
+              description: '30+ stacks, endless combos (web apps, mobile apps, cloud guts, Python, React, Flutter, .Net, PHP, Java, AI, ML, NLP, Android, iOS, etc. - you name it). Bring the idea, we will ship the build.'
+            },
+            {
+              image: '/assets/hero2.png',
+              heading: 'Global Software Engineering, IT Consulting & Software Development Outsourcing Company',
+              description: 'We turn complex challenges into scalable software solutions backed with Intelligence (Artificial + Human)'
+            },
+            {
+              image: '/assets/hero3.png',
+              heading: 'From &quot;Hi&quot; to Handoff in Just 3 Working Days.',
+              description: 'Forget long sign-offs. Talk with us, lock the required skills and get your dedicated squad before your coffee subscription renews.'
+            }
+          ],
+          init() {
+            setInterval(() => {
+              this.activeSlide = (this.activeSlide + 1) % this.slides.length;
+            }, 6000);
+          }
+        }"
+      >
+        <!-- Left Column: Text -->
+        <div class="flex flex-col items-start gap-8 sm:gap-10">
+          <div class="relative grid min-h-[200px]"> <!-- Grid stack container -->
+            <template x-for="(slide, index) in slides" :key="index">
+              <div 
+                x-show="activeSlide === index"
+                x-transition:enter="transition ease-in-out duration-1000"
+                x-transition:enter-start="opacity-0 translate-y-4"
+                x-transition:enter-end="opacity-100 translate-y-0"
+                x-transition:leave="transition ease-in-out duration-700"
+                x-transition:leave-start="opacity-100 translate-y-0"
+                x-transition:leave-end="opacity-0 -translate-y-4"
+                class="col-start-1 row-start-1 flex flex-col gap-4 sm:gap-6"
+              >
+                <h1 
+                  class="text-3xl font-medium tracking-tight sm:text-4xl lg:text-4xl text-white"
+                  x-text="slide.heading"
+                ></h1>
+                <p 
+                  class="text-primary-950/70 dark:text-primary-200/70 text-lg sm:text-xl"
+                  x-text="slide.description"
+                ></p>
+              </div>
+            </template>
+          </div>
+          <div class="relative inline-block">
+            <div class="absolute -top-12 -left-20 hidden md:block rotate-12 scale-x-[1]">
+              <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 80 Q 50 80 60 40" stroke="#FFBD33" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse" />
+                <path d="M45 45 L 60 40 L 65 55" stroke="#FFBD33" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse" />
+              </svg>
+            </div>
+            <a
+            href="/contact"
+            class="inline-flex items-center justify-center rounded-lg bg-[#FFBD33] px-6 py-3 text-base font-bold text-black transition hover:bg-[#ffb01f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFBD33] z-10 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#FFBD33]/20 duration-300"
+            style="color: #000000 !important;"
+          >
+            Book Free Consultation
+          </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Image Slider -->
+        <div class="relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-transparent">
+          <template x-for="(slide, index) in slides" :key="index">
+            <img
+              :src="slide.image"
+              :alt="slide.heading"
+              class="absolute top-1/2 left-[55%] -translate-x-1/2 -translate-y-1/2 w-auto h-auto object-contain transition-opacity duration-1000 ease-in-out"
+              :class="{ 
+                'opacity-100': activeSlide === index, 
+                'opacity-0': activeSlide !== index,
+                'max-w-[70%] max-h-[70%]': index !== 1,
+                'max-w-[85%] max-h-[85%]': index === 1
+              }"
+            />
+          </template>
+        </div>
+      </div>
+
+      <!-- Restored Video -->
+      <video
+        class="h-auto w-full rounded-3xl"
+        width="1280"
+        height="640"
+        autoplay
+        loop
+        muted
+        playsinline
+        poster="/assets/hero.webp"
+      >
+        <source src="/assets/compressed-video.mp4" type="video/mp4" />
+      </video>
+
+      <div class="relative mt-8 max-w-3xl mx-auto text-center">
+
+
+        <p class="text-xl md:text-2xl font-medium leading-relaxed text-primary-950/90 dark:text-primary-200/90">
+          See that? We built that custom world to demonstrate <span class="text-[#FFBD33] font-bold">limitless possibilities</span>. 
+          At <span class="font-bold">ITECHON</span>, we don't just write code; we engineer <span class="underline decoration-[#FFBD33] decoration-4 underline-offset-4">unshakable reliability</span>. 
+          Trust your complex vision to a team that delivers perfection, every time.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

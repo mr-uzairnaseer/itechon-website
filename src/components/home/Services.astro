@@ -1,0 +1,139 @@
+---
+const services = [
+  {
+    name: 'Digital Transformation',
+    icon: '/assets/digital-transformation.svg',
+    description: 'Reimagine your business with digital-first strategies.',
+  },
+  {
+    name: 'Artificial Intelligence',
+    icon: '/assets/ai.svg',
+    description: 'Empower your systems with intelligent decision-making.',
+  },
+  {
+    name: 'Machine Learning',
+    icon: '/assets/ml.svg',
+    description: 'Algorithms that learn and adapt to your data.',
+  },
+  {
+    name: 'Cloud & DevOps',
+    icon: '/assets/devops.svg',
+    description: 'Scalable infrastructure and streamlined deployment pipelines.',
+  },
+  {
+    name: 'MVP Development',
+    icon: '/assets/mvp-dev.svg',
+    description: 'Launch your product vision quickly and effectively.',
+  },
+  {
+    name: 'Product Engineering',
+    icon: '/assets/software-product-eng.svg',
+    description: 'End-to-end development of robust software products.',
+  },
+  {
+    name: 'Process Automation',
+    icon: '/assets/process-automation.svg',
+    description: 'Automate repetitive workflows for efficiency.',
+  },
+  {
+    name: 'Data Analytics',
+    icon: '/assets/data-analytics.svg',
+    description: 'Turn raw data into actionable insights.',
+  },
+  {
+    name: 'Mobile Apps',
+    icon: '/assets/mobile-apps.svg',
+    description: 'Native and cross-platform mobile experiences.',
+  },
+  {
+    name: 'Website & Web Apps',
+    icon: '/assets/website-web-apps.svg',
+    description: 'High-performance websites and web applications.',
+  },
+  {
+    name: 'eCommerce & CMS',
+    icon: '/assets/ecommerce.svg',
+    description: 'Scalable online stores and content management systems.',
+  },
+  {
+    name: 'SaaS / PaaS',
+    icon: '/assets/saas.svg',
+    description: 'Cloud-based software and platform solutions.',
+  },
+  {
+    name: 'ERP & CRM',
+    icon: '/assets/erp.svg',
+    description: 'Enterprise resource planning and customer management.',
+  },
+  {
+    name: 'Software Maintenance',
+    icon: '/assets/software-maintenance.svg',
+    description: 'Keep your software running smoothly and securely.',
+  },
+  {
+    name: 'QA Testing Automation',
+    icon: '/assets/qa-testing.svg',
+    description: 'Ensure bug-free, high-quality releases.',
+  },
+  {
+    name: 'UI/UX Design',
+    icon: '/assets/ui-ux-design.svg',
+    description: 'Intuitive and engaging user interfaces.',
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-12 sm:gap-16">
+      <div class="flex flex-col gap-4 text-center">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-left">Core Software Development Services Trusted by CXOs Worldwide</h2>
+        <p class="text-primary-950/70 dark:text-primary-200/70 text-lg sm:text-xl text-left max-w-4xl">
+          Transform your vision into a stunning and functional digital product. Our core software development services help you maximize your returns on IT investments, and make your brand reach wider clients. Count on us for bespoke offshore software development, web development, mobile app development and next-gen services as we excel IT outsourcing solutions for all industry segments.
+        </p>
+      </div>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          services.map((service) => (
+            <a
+              href="#"
+              class="group relative flex flex-col gap-6 overflow-hidden rounded-3xl bg-gradient-to-br from-[#ffffff05] to-[#ffffff00] border border-white/10 px-6 py-8 transition-all duration-300 hover:bg-[#ffffff08] hover:border-[#FFBD33]/50 hover:shadow-[0_0_20px_rgba(255,189,51,0.1)]"
+            >
+              {/* Top Right Arrow */}
+              <div class="absolute right-6 top-8 text-[#FFBD33] opacity-20 blur-[1px] transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:blur-0 group-hover:opacity-100">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="h-6 w-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+
+              <div class="h-16 w-16 text-primary-600 dark:text-primary-300">
+                <img
+                  src={service.icon}
+                  alt={service.name}
+                  class="h-full w-full"
+                />
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-xl font-medium">{service.name}</h3>
+               {/* <p class="text-primary-950/70 dark:text-primary-200/70 text-base">
+                  {service.description}
+                </p> */}
+              </div>
+              {/* Animated Bottom Line */}
+              <div class="absolute bottom-0 left-0 h-1.5 w-full origin-left scale-x-0 bg-[#FFBD33] transition-transform duration-500 ease-in-out group-hover:scale-x-100" />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

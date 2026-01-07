@@ -1,0 +1,66 @@
+---
+const processSteps = [
+  {
+    step: '01',
+    name: 'Discovery & Strategy',
+    description:
+      'We dive deep into your business goals, user needs, and market landscape. This foundational phase ensures a strategic roadmap aligned with your vision.',
+    icon: '/assets/digital-transformation.svg',
+  },
+  {
+    step: '02',
+    name: 'Design & Prototyping',
+    description:
+      'Our designers craft intuitive UI/UX experiences. We create interactive prototypes to visualize the product before writing a single line of code.',
+    icon: '/assets/ui-ux-design.svg',
+  },
+  {
+    step: '03',
+    name: 'Development & QA',
+    description:
+      'Our engineers build robust, scalable systems using agile methodologies. Rigorous QA testing constitutes every sprint to ensure a bug-free launch.',
+    icon: '/assets/website-web-apps.svg',
+  },
+  {
+    step: '04',
+    name: 'Launch & Scale',
+    description:
+      'We handle the deployment and provide ongoing support. As your user base grows, we help you scale your infrastructure to meet demand.',
+    icon: '/assets/software-maintenance.svg',
+  },
+];
+---
+
+<section class="py-16 sm:py-20 relative overflow-hidden">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative z-10">
+    <div class="flex flex-col gap-12 sm:gap-16">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-center">
+        <span class="border-b-4 border-[#FFBD33]">Our Proven Process</span>
+      </h2>
+      <div class="grid gap-8 lg:grid-cols-4">
+        {
+          processSteps.map((item) => (
+            <div class="group relative flex flex-col gap-8 rounded-3xl bg-gradient-to-br from-[#ffffff05] to-[#ffffff00] border border-white/10 px-6 py-8 transition-all duration-300 hover:bg-[#ffffff08] hover:border-[#FFBD33]/50 hover:shadow-[0_0_20px_rgba(255,189,51,0.1)] hover:-translate-y-1">
+              <div class="flex items-center justify-between">
+                <p class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#FFBD33] to-[#FFBD33]/10 opacity-50">{item.step}</p>
+                 {/* Icon with Color Mask */}
+                <div class="h-10 w-10 p-2 rounded-xl bg-[#FFBD33]/10 text-[#FFBD33] flex items-center justify-center group-hover:!text-black transition-all duration-300">
+                    <div
+  class="h-full w-full bg-current transition-colors duration-300"
+  style={`mask-image: url(${item.icon}); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url(${item.icon}); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center; mask-mode: alpha; -webkit-mask-mode: alpha;`}
+/>
+                </div>
+              </div>
+              <div class="flex flex-col gap-4">
+                <h3 class="text-xl font-medium group-hover:text-[#FFBD33] transition-colors">{item.name}</h3>
+                <p class="text-primary-950/70 dark:text-primary-200/70 text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

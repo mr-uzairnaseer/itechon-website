@@ -1,0 +1,73 @@
+---
+const articles = [
+  {
+    title: 'AI Development Near Me vs. Offshore AI Labs: Which is Best for Building Smart City Tech Solutions?',
+    excerpt: 'Explore the pros and cons of local vs. offshore AI development for smart city initiatives, focusing on cost, talent, and scalability.',
+    image: '/assets/hero1.png', // Using existing asset as placeholder or I could use a div with gradient
+    link: '#',
+  },
+  {
+    title: 'Software Engineering Companies Near Me vs. Global Consultancies: Tackling Region-Specific Challenges with Precision',
+    excerpt: 'A comparative analysis of local software firms versus global consultancies in addressing regional technical and compliance challenges.',
+    image: '/assets/hero2.png',
+    link: '#',
+  },
+  {
+    title: 'Long-Term vs Short-Term: When to Hire Dedicated Team from India vs. When to Hire Local Developers',
+    excerpt: 'Guidance on choosing between dedicated offshore teams from India and local developers based on project duration and scope.',
+    image: '/assets/hero3.png',
+    link: '#',
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-12 sm:gap-16">
+      
+      {/* Section Header */}
+      <div class="flex flex-col gap-4 text-center mx-auto max-w-5xl">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-center">
+          <span class="border-b-4 border-[#FFBD33]">Related Articles You Should Read Next</span>
+        </h2>
+        <p class="text-primary-950/70 dark:text-primary-200/70 text-lg sm:text-xl text-center">
+          Explore the latest insights, market trends, consumer demands, and expertise in our Knowledge Corner where you find a treasure trove of the most recent write-ups that are carefully curated to keep our readers at the forefront of the tech industry.
+        </p>
+      </div>
+
+      {/* Articles Grid */}
+      <div class="grid gap-8 lg:grid-cols-3">
+        {
+          articles.map((article) => (
+            <a href={article.link} class="group flex flex-col gap-6 rounded-3xl bg-primary-500/10 dark:bg-primary-400/10 p-4 transition duration-300 hover:bg-primary-500/20 dark:hover:bg-primary-400/20">
+              {/* Image Placeholder - leveraging existing assets or simple div */}
+              <div class="aspect-video w-full rounded-2xl overflow-hidden bg-primary-500/20 dark:bg-primary-400/20 relative">
+                 {/*  Using the images if available, otherwise fallback to gradient */}
+                 <img 
+                    src={article.image} 
+                    alt={article.title} 
+                    class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                    onError="this.style.display='none'"
+                 />
+                 <div class="absolute inset-0 bg-gradient-to-t from-primary-950/80 to-transparent" />
+              </div>
+
+              <div class="flex flex-col gap-4 px-2 pb-4">
+                <h3 class="text-xl font-medium leading-snug text-primary-950 dark:text-primary-50 group-hover:text-[#FFBD33] transition-colors">
+                  {article.title}
+                </h3>
+                <p class="text-primary-950/70 dark:text-primary-200/70 text-base line-clamp-3">
+                  {article.excerpt}
+                </p>
+                <div class="mt-auto pt-2 flex items-center text-[#FFBD33] font-bold text-sm uppercase tracking-wide">
+                  Read Article
+                  <svg class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,109 @@
+---
+const industries = [
+  {
+    name: 'Automobile',
+    icon: '/assets/Industries/automobile.png',
+  },
+  {
+    name: 'BFSI',
+    icon: '/assets/Industries/bfsi.png',
+  },
+  {
+    name: 'Construction',
+    icon: '/assets/Industries/construction.png',
+  },
+  {
+    name: 'Education',
+    icon: '/assets/Industries/edu.png',
+  },
+  {
+    name: 'Gaming',
+    icon: '/assets/Industries/games.png',
+  },
+  {
+    name: 'Healthcare',
+    icon: '/assets/Industries/healthcare.png',
+  },
+  {
+    name: 'Lifestyle',
+    icon: '/assets/Industries/lifestyle.png',
+  },
+  {
+    name: 'Logistics',
+    icon: '/assets/Industries/logistic.png',
+  },
+  {
+    name: 'Marketing',
+    icon: '/assets/Industries/marketing.png',
+  },
+  {
+    name: 'Other',
+    icon: '/assets/Industries/other.png',
+  },
+  {
+    name: 'Real Estate',
+    icon: '/assets/Industries/real-estate.png',
+  },
+  {
+    name: 'Retail',
+    icon: '/assets/Industries/retails.png',
+  },
+  {
+    name: 'Social Media',
+    icon: '/assets/Industries/sm-entertainment.png',
+  },
+  {
+    name: 'Sports',
+    icon: '/assets/Industries/sports.png',
+  },
+  {
+    name: 'Technology',
+    icon: '/assets/Industries/technology.png',
+  },
+  {
+    name: 'Travel',
+    icon: '/assets/Industries/travel.png',
+  },
+  {
+    name: 'Utilities',
+    icon: '/assets/Industries/utilities.png',
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-12 sm:gap-16">
+      <div class="flex flex-col gap-4 text-center">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-left">
+          <span class="border-b-4 border-[#FFBD33]">Industries</span>
+        </h2>
+        <p class="text-primary-950/70 dark:text-primary-200/70 text-lg sm:text-xl text-left">
+          We are proud to empower a diverse range of industries and sectors worldwide with tailor-made and innovative offshore IT solutions. Irrespective of your industry vertical, our commitment to quality, reliability, and excellence remains unwavering. Partnering with us assures you the best offshore custom software development services and solutions to automate your business operations with enhanced safety, efficiency, and productivity.
+        </p>
+      </div>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-12">
+        {
+          industries.map((item, index) => (
+            <div
+              class={`group relative flex flex-col items-center text-center gap-6 overflow-hidden rounded-3xl bg-gradient-to-br from-[#ffffff05] to-[#ffffff00] border border-white/10 px-6 py-8 transition-all duration-300 hover:bg-[#ffffff08] hover:border-[#FFBD33]/50 hover:shadow-[0_0_20px_rgba(255,189,51,0.1)] hover:-translate-y-1 lg:col-span-2 ${
+                index === 12 ? 'lg:col-start-2' : ''
+              }`}
+            >
+              <div class="h-16 w-16 text-primary-600 dark:text-primary-300 transition-transform duration-300 group-hover:scale-110 group-hover:text-[#FFBD33]">
+                {/* PNG Icon with Color Mask */}
+                <div
+                  class="h-full w-full bg-current"
+                  style={`mask-image: url(${item.icon}); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url(${item.icon}); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;`}
+                />
+              </div>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-xl font-medium group-hover:text-[#FFBD33] transition-colors">{item.name}</h3>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

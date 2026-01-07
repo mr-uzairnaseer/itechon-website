@@ -1,0 +1,135 @@
+---
+const questions = [
+  {
+    id: 'faq-1',
+    title: 'What is the hourly rate for a software consultant?',
+    answer:
+      'In the global market, software consultants typically charge between $100 and $300 per hour, depending on their expertise and the complexity of the project. At WeblineIndia, we offer top-tier consulting services at highly competitive offshore rates, starting from just $15 per hour—delivering exceptional quality and cost-efficiency for your business.',
+  },
+  {
+    id: 'faq-2',
+    title: 'What is the difference between software as a service and outsourcing?',
+    answer:
+      'SaaS or Software as a Service is a model where software is delivered over the internet, allowing users to access it on a subscription basis without the need for installation or maintenance. Outsourcing, on the other hand, involves hiring an external company to develop, manage, or maintain software for your business, tailored to your specific needs. At WeblineIndia, we offer both SaaS solutions and software outsourcing services. Our SaaS offerings empower businesses with ready-to-use, scalable tools, while our outsourcing services focus on delivering custom software development and maintenance to meet your unique requirements.',
+  },
+  {
+    id: 'faq-3',
+    title: 'Is Software outsourcing the same as software consulting?',
+    answer:
+      'No, they are different. Software outsourcing refers to delegating the development or maintenance of software to an external team or company. Software consulting focuses on providing expert advice, strategies, and solutions to optimize your software development process or overcome technical challenges. WeblineIndia provides both services—outsourcing for custom software development and consulting to guide businesses in leveraging the latest technologies for optimal outcomes.',
+  },
+  {
+    id: 'faq-4',
+    title: 'How do you outsource software development?',
+    answer:
+      'Outsourcing software development begins with defining your project requirements and objectives. Once you have a clear vision, the next step is to research and select a reliable outsourcing partner who aligns with your needs. After identifying the right partner, you discuss and finalize the scope, timelines, and budget for the project. A contract is then signed to ensure confidentiality and define clear deliverables. Throughout the project, consistent collaboration and communication with the outsourcing team are crucial to ensure successful delivery. WeblineIndia simplifies this entire process by offering end-to-end support, leveraging 26+ years of expertise and a highly skilled team, so you can focus on your core business while we handle your software development needs.',
+  },
+  {
+    id: 'faq-5',
+    title: 'What happens when you outsource?',
+    answer:
+      'When you outsource, you delegate specific business tasks, such as software development or IT management, to an external team or company. This process allows you to access specialized expertise, reduce costs, and focus on core business operations. The outsourcing partner takes responsibility for delivering the agreed-upon services or solutions within the specified timeline and budget. Outsourcing often involves regular communication, progress updates, and collaboration to ensure the project aligns with your goals and expectations. With WeblineIndia, outsourcing becomes a seamless experience. Our proven RelyShore™ model ensures that your projects are managed efficiently by a team of skilled professionals. We handle everything from planning and development to testing and deployment, all while maintaining transparency and delivering high-quality results. With over 26 years of experience, ISO-certified processes, and a commitment to client success, WeblineIndia is your trusted partner for outsourcing.',
+  },
+  {
+    id: 'faq-6',
+    title: 'How to choose a software outsourcing company?',
+    answer:
+      "Choosing the right software outsourcing company is crucial for the success of your project. Start by assessing your project requirements and defining the skills and expertise you need. Research potential outsourcing companies by evaluating their experience, technical expertise, client reviews, and portfolio. Consider their communication practices, project management methodologies, and ability to understand your business goals. It's also essential to ensure they adhere to security standards and provide clear contracts outlining scope, timelines, and deliverables. Finally, compare costs and value to find a partner who balances quality with affordability. WeblineIndia is an ideal choice for software outsourcing. With over 26 years of industry experience, ISO-certified processes, and a team of 165+ highly skilled developers, we specialize in delivering custom software solutions tailored to your business needs. Our transparent communication, robust project management, and commitment to quality make us a trusted partner for clients in 26+ countries. Let WeblineIndia help you turn your vision into reality while ensuring cost-efficiency and reliability.",
+  },
+  {
+    id: 'faq-7',
+    title: 'Is it cheaper to outsource software development requirements?',
+    answer:
+      'Yes, outsourcing software development is often more cost-effective compared to hiring and maintaining an in-house team. By outsourcing, you eliminate expenses related to recruitment, training, infrastructure, and employee benefits. Offshore outsourcing, in particular, offers the added advantage of leveraging global talent at competitive rates, especially from regions with lower labor costs, without compromising on quality. The cost savings, combined with access to specialized expertise, make outsourcing an attractive option for businesses looking to optimize their budgets. With WeblineIndia, outsourcing your software development requirements becomes both affordable and reliable. We offer offshore development services with rates starting as low as $15 per hour, ensuring top-tier quality and a transparent process. Our team of experienced developers works closely with you to deliver tailored solutions that meet your needs while maximizing cost efficiency. With 26+ years of expertise and ISO-certified processes, WeblineIndia is the perfect partner to help you achieve your business goals within budget.',
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-3 lg:gap-8">
+      <div class="flex flex-col gap-6 relative">
+        <div class="flex flex-col gap-4">
+          <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">FAQs</h2>
+          <p class="text-primary-950/70 dark:text-primary-200/70 text-lg sm:text-xl">
+            Find quick answers to common questions related to Software Development Services. Contact us for further assistance.
+          </p>
+        </div>
+        <div class="flex flex-col gap-4 relative z-10">
+          <p class="text-primary-950/70 dark:text-primary-200/70 text-base font-medium">
+            Still have a question?
+          </p>
+          <a
+            href="/contact"
+            class="bg-[#FFBD33] hover:bg-[#ffb01f] focus-visible:outline-[#FFBD33] text-primary-950 dark:text-primary-950 inline-flex w-fit items-center justify-center rounded-lg border border-transparent px-5 py-3 text-base font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+          >
+            Contact us
+          </a>
+        </div>
+        
+        {/* Spiral Arrow pointing to questions */}
+        <div class="hidden lg:block absolute bottom-0 right-0 translate-x-[10%] translate-y-[-50%] text-[#FFBD33] opacity-80">
+           <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[277px] h-[277px] -rotate-12 scale-y-[-1]">
+            <path d="M10 50 C 30 50, 50 20, 80 20" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M70 10 L 90 20 L 70 35" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+
+      </div>
+      <div class="lg:col-span-2">
+        <dl
+          class="-mt-3"
+          x-data="{ selected: 0, toggle(value) { this.selected = this.selected === value ? null : value } }"
+        >
+          {
+            questions.map((question, index) => (
+              <div
+                class="rounded-3xl px-4 transition"
+                x-data={`{ id: ${index}, get isOpen() { return this.id === this.selected }, get isNextOpen() { return (this.id + 1) === this.selected } }`}
+                x-bind:class="{ 'bg-gradient-to-br from-[#ffffff05] to-[#ffffff00] border border-[#FFBD33]/30 shadow-[0_0_15px_rgba(255,189,51,0.05)]': isOpen, 'border border-transparent': !isOpen }"
+              >
+                <dt
+                  class="border-b text-lg transition"
+                  x-cloak
+                  x-bind:class="{ 'border-transparent': isOpen || isNextOpen, 'border-primary-900/10 dark:border-primary-300/10': !(isOpen || isNextOpen) }"
+                >
+                  <button
+                    type="button"
+                    class="group block w-full py-6 text-left transition focus-visible:outline-none"
+                    aria-controls={question.id}
+                    x-on:click="toggle(id)"
+                    aria-expanded="false"
+                    x-bind:aria-expanded="isOpen.toString()"
+                  >
+                    <div class="group-focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 flex items-center justify-between rounded-3xl group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2">
+                      <span class="font-medium">{question.title}</span>
+                      <span class="ml-6 flex h-7 items-center">
+                        <svg
+                          class="h-6 w-6 transform transition duration-200 ease-in-out"
+                          x-bind:class="{ '-rotate-180 text-[#FFBD33]': isOpen, 'rotate-0 text-primary-600 dark:text-primary-400': !isOpen }"
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z" />
+                        </svg>
+                      </span>
+                    </div>
+                  </button>
+                </dt>
+                <dd class="" id={question.id} x-show="isOpen" x-cloak x-collapse>
+                  <div class="pb-6 pr-6">
+                    <p class="text-primary-950/70 dark:text-primary-200/70 text-base">
+                      {question.answer}
+                    </p>
+                  </div>
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

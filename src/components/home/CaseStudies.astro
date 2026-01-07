@@ -1,0 +1,200 @@
+---
+const caseStudies = [
+  {
+    id: 'lifestyle',
+    category: 'LIFESTYLE',
+    step: '01',
+    title: 'Shopify eCommerce Automation Solution with n8n | Case Study',
+    description:
+      'This case study highlights how WeblineIndia delivered a complete Shopify eCommerce automation suite for a Dutch lifestyle retailer by leveraging n8n workflows, AI-driven SEO content generation and automated inventory synchronization. It also highlights how outsourcing the solution to our offshore n8n engineers helped the client streamline product publishing, eliminate manual tasks and maintain consistent, high-quality product data across their eCommerce store. Businesses looking to automate Shop...',
+    tags: [
+      'Artificial Intelligence (AI)',
+      'Business Intelligence',
+      'Cloud',
+      'eCommerce',
+      'Greenfield Software Development',
+      'Lifestyle',
+      'n8n Automation',
+      'Process Automation',
+      'Retail',
+      'Shopify',
+      'Software Outsourcing',
+      'Website & Web Apps',
+    ],
+  },
+  {
+    id: 'bfsi-1',
+    category: 'BFSI',
+    step: '02',
+    title: 'Adaptive JSON Schema & AI-Orchestrated Data Flow | n8n Workflow Automation',
+    description:
+      "Discover how a fast-moving credit-reporting firm slashed onboarding time from ten days to three and hit 99 % schema consistency by outsourcing to WeblineIndia's offshore, dedicated team of n8n software engineers. This five-minute read walks you through the nuts and bolts of n8n automation development, AI-powered synonym mapping, and custom software governance showing exactly why smart offshoring beats piecemeal scripts when you need reliable, scalable data workflows. Dive in, learn the playbook ...",
+    tags: [
+      'Artificial Intelligence (AI)',
+      'BFSI',
+      'Cloud',
+      'Database & SQL',
+      'DevOps',
+      'Greenfield Software Development',
+      'n8n Automation',
+      'Process Automation',
+      'Software Outsourcing',
+    ],
+  },
+  {
+    id: 'utilities',
+    category: 'UTILITIES',
+    step: '03',
+    title: 'PHMSA-Compliant Control Room Software',
+    description:
+      "This case study explores how we engineered a PHMSA-compliant control room software system for a pipeline operator. With no prior systems in place, the client chose to outsource the full build to our offshore software development team. The result: a scalable, audit-ready, PHMSA-compliant control room software platform tailored to meet strict pipeline safety and compliance standards. If you're looking to hire a remote team for similar mission-critical software, this one's worth reading.",
+    tags: [
+      'AWS',
+      'Cloud',
+      'Database & SQL',
+      'DevOps',
+      'Digital Transformation',
+      'Frontend',
+      'Greenfield Software Development',
+      'Java',
+      'Process Automation',
+      'QA',
+      'ReactJS',
+      'Software Outsourcing',
+      'UI UX',
+      'Utilities',
+    ],
+  },
+  {
+    id: 'bfsi-2',
+    category: 'BFSI',
+    step: '04',
+    title: 'Financial Advisor App Built for Real-Time Valuation & Tax Insights',
+    description:
+      "Explore how a full-scale fintech mobile app was engineered from scratch to empower financial advisors with real-time valuation alerts, tax court decisions, and investment planning tools. This case study showcases how our offshore development team delivered a secure, scalable and content-rich custom software product tailored for the financial industry. If you're looking to build or outsource a similar financial planning app, this deep dive case study is for you.",
+    tags: [
+      'Android',
+      'AWS',
+      'BFSI',
+      'Cloud',
+      'CMS',
+      'Database & SQL',
+      'DevOps',
+      'Frontend',
+      'Greenfield Software Development',
+      'Hire Developers',
+      'iOS',
+      'Mobile Apps',
+      'NodeJS',
+      'PHP',
+      'Process Automation',
+      'QA',
+      'ReactJS',
+      'Real Estate',
+      'Software Outsourcing',
+      'UI UX',
+      'Utilities',
+    ],
+  },
+];
+---
+
+<section class="py-16 sm:py-20" id="case-studies">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div
+      class="flex flex-col gap-12"
+      x-data="{ activeCase: 0 }"
+    >
+      {/* Top Navigation Bar */}
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+        {/* Tabs */}
+        <div class="flex-1 overflow-x-auto pb-2 lg:pb-0">
+          <div class="flex min-w-max gap-1 bg-primary-950/5 dark:bg-white/5 p-1 rounded-lg lg:rounded-none lg:bg-transparent lg:dark:bg-transparent lg:p-0">
+            {caseStudies.map((study, index) => (
+              <button
+                x-on:click={`activeCase = ${index}`}
+                class="flex items-center gap-4 px-6 py-4 transition-colors relative group"
+                x-bind:class={`activeCase === ${index} ? 'bg-white dark:bg-primary-500/10' : 'bg-primary-950/5 dark:bg-primary-400/5 hover:bg-primary-950/10 dark:hover:bg-primary-400/10'`}
+              >
+                <span class="text-2xl font-bold" x-bind:class={`activeCase === ${index} ? 'text-primary-950 dark:text-white' : 'text-primary-950/60 dark:text-primary-200/60'`}>{study.step}</span>
+                <span class="text-sm font-bold uppercase tracking-wider" x-bind:class={`activeCase === ${index} ? 'text-primary-950 dark:text-white' : 'text-primary-950/60 dark:text-primary-200/60'`}>{study.category}</span>
+                
+                {/* Active Indicator (Top Yellow Line or Box style) */}
+                <div x-show={`activeCase === ${index}`} class="absolute top-0 left-0 w-full h-1 bg-[#FFBD33]" />
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* All Case Studies Button */}
+        <a
+          href="/case-studies"
+          class="shrink-0 bg-[#FFBD33] hover:bg-[#ffb01f] text-primary-950 inline-flex items-center justify-center gap-2 px-6 py-4 text-sm font-bold uppercase tracking-wider transition"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            class="h-5 w-5"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          All Case Studies
+        </a>
+      </div>
+
+      {/* Main Content Area */}
+      <div class="grid lg:grid-cols-1 gap-12 bg-primary-500/5 dark:bg-primary-400/5 rounded-3xl p-8 lg:p-12 relative overflow-hidden">
+        {caseStudies.map((study, index) => (
+          <div
+            x-show={`activeCase === ${index}`}
+            x-cloak
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 translate-y-4"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            class="flex flex-col gap-8"
+          >
+            {/* Label */}
+            <div class="flex items-center gap-4">
+              <div class="h-0.5 w-12 bg-[#FFBD33]"></div>
+              <span class="text-sm font-bold uppercase tracking-wider text-primary-950 dark:text-white">Case Study</span>
+            </div>
+
+            {/* Title & Description */}
+            <div class="max-w-4xl">
+              <h3 class="text-3xl font-bold tracking-tight text-primary-950 dark:text-white sm:text-4xl mb-6">
+                {study.title}
+              </h3>
+              <p class="text-lg text-primary-950/70 dark:text-primary-200/70 leading-relaxed">
+                {study.description}
+              </p>
+            </div>
+
+            {/* Button */}
+            <div>
+               <a
+                href={`/case-studies/${study.id}`}
+                class="bg-[#FFBD33] hover:bg-[#ffb01f] text-primary-950 inline-flex items-center justify-center rounded-lg px-8 py-4 text-sm font-bold uppercase tracking-wider transition shadow-sm hover:shadow-md"
+              >
+                View Details
+              </a>
+            </div>
+
+            {/* Tags */}
+            <div class="flex flex-wrap gap-3 mt-4">
+              {study.tags.map((tag) => (
+                <span class="inline-flex items-center rounded-full bg-primary-950/5 dark:bg-white/10 px-4 py-2 text-sm font-medium text-primary-950 dark:text-primary-200">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
