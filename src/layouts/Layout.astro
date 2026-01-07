@@ -71,7 +71,7 @@ const socialImage = new URL(image, Astro.site);
         "@type": "Organization",
         "name": "ITECHON",
         "url": "https://itechon.com",
-        "logo": "https://itechon.com/assets/ITECHON.svg",
+        "logo": "https://itechon.com/assets/ITECHON.png",
         "description": "Global Software Engineering, IT Consulting & Software Development Outsourcing Company",
         "sameAs": [],
         "contactPoint": {
@@ -92,6 +92,16 @@ const socialImage = new URL(image, Astro.site);
       <slot />
     </main>
     <Footer />
+    
+    <!-- Sticky "NEED MORE INFO?" Sidebar Button -->
+    <a
+      href="/contact"
+      class="fixed right-0 top-1/2 z-[9999] flex -translate-y-1/2 flex-col items-center justify-center rounded-r-lg border-r-4 border-[#FFBD33] bg-[#111111] py-4 pl-1 pr-1 font-bold tracking-widest text-[#FFFFFF] shadow-[0_0_10px_rgba(255,189,51,0.3)] transition-transform hover:translate-x-1"
+      style="writing-mode: vertical-rl; text-orientation: mixed; transform: translateY(-50%) rotate(180deg);"
+    >
+      NEED MORE INFO?
+    </a>
+
     <style is:global>
       [x-cloak] {
         display: none !important;
