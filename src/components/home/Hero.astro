@@ -54,21 +54,13 @@
               </div>
             </template>
           </div>
-          <div class="relative inline-block">
-            <div class="absolute -top-12 -left-20 hidden md:block rotate-12 scale-x-[1]">
-              <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 80 Q 50 80 60 40" stroke="#FFBD33" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse" />
-                <path d="M45 45 L 60 40 L 65 55" stroke="#FFBD33" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse" />
-              </svg>
-            </div>
-            <a
+          <a
             href="/contact"
             class="inline-flex items-center justify-center rounded-lg bg-[#FFBD33] px-6 py-3 text-base font-bold text-black transition hover:bg-[#ffb01f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFBD33] z-10 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#FFBD33]/20 duration-300"
             style="color: #000000 !important;"
           >
             Book Free Consultation
           </a>
-          </div>
         </div>
 
         <!-- Right Column: Image Slider -->
@@ -104,7 +96,14 @@
       </video>
 
       <div class="relative mt-8 max-w-3xl mx-auto text-center">
-
+        <!-- Arrow pointing to video (Flipped & Left) -->
+        <div class="absolute -top-16 left-[-8%] hidden md:block rotate-3 scale-x-[-1]">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Smooth Swoosh Arrow -->
+                <path d="M20 80 Q 50 80 60 40" stroke="#FFBD33" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse" />
+                <path d="M45 45 L 60 40 L 65 55" stroke="#FFBD33" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="animate-pulse" />
+            </svg>
+        </div>
 
         <p class="text-xl md:text-2xl font-medium leading-relaxed text-primary-950/90 dark:text-primary-200/90">
           See that? We built that custom world to demonstrate <span class="text-[#FFBD33] font-bold">limitless possibilities</span>. 
