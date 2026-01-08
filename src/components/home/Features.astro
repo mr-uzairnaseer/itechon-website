@@ -47,80 +47,86 @@ const questions = [
 
 <section class="py-16 sm:py-20">
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-    <div class="grid gap-12 lg:grid-cols-3 lg:gap-8">
-      <div class="flex flex-col gap-6 relative">
+    <div class="grid gap-12 lg:grid-cols-3 lg:gap-8 items-start">
+      <div class="flex flex-col gap-6 relative lg:sticky lg:top-32">
         <div class="flex flex-col gap-4">
-          <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">FAQs</h2>
-          <p class="text-primary-950/70 dark:text-primary-200/70 text-lg sm:text-xl">
-            Find quick answers to common questions related to Software Development Services. Contact us for further assistance.
+          <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-primary-950 dark:text-white">
+            Common <span class="text-[#FFBD33]">Questions</span>
+          </h2>
+          <p class="text-primary-950/60 dark:text-primary-200/60 text-lg leading-relaxed">
+            Everything you need to know about working with us. Can't find the answer you're looking for?
           </p>
         </div>
         <div class="flex flex-col gap-4 relative z-10">
-          <p class="text-primary-950/70 dark:text-primary-200/70 text-base font-medium">
-            Still have a question?
-          </p>
           <a
             href="/contact"
-            class="bg-[#FFBD33] hover:bg-[#ffb01f] focus-visible:outline-[#FFBD33] text-primary-950 dark:text-primary-950 inline-flex w-fit items-center justify-center rounded-lg border border-transparent px-5 py-3 text-base font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            class="inline-flex w-fit items-center justify-center rounded-full bg-primary-950 dark:bg-white px-8 py-3 text-base font-bold text-white dark:text-primary-950 transition hover:bg-primary-800 dark:hover:bg-gray-100"
           >
-            Contact us
+            Contact Support
           </a>
         </div>
         
         {/* Spiral Arrow pointing to questions */}
-        <div class="hidden lg:block absolute bottom-0 right-0 translate-x-[10%] translate-y-[-50%] text-[#FFBD33] opacity-80">
-           <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[277px] h-[277px] -rotate-12 scale-y-[-1]">
-            <path d="M10 50 C 30 50, 50 20, 80 20" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <path d="M70 10 L 90 20 L 70 35" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <div class="hidden lg:block absolute top-[120%] left-0 w-full opacity-50">
+           <svg width="200" height="200" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-[#FFBD33] rotate-12">
+            <path d="M10 10 Q 50 10 50 50 T 90 90" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+            <path d="M85 80 L 90 90 L 80 95" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
 
       </div>
-      <div class="lg:col-span-2">
+      <div class="lg:col-span-2 space-y-4">
         <dl
-          class="-mt-3"
+          class="flex flex-col gap-4"
           x-data="{ selected: 0, toggle(value) { this.selected = this.selected === value ? null : value } }"
         >
           {
             questions.map((question, index) => (
               <div
-                class="rounded-3xl px-4 transition"
-                x-data={`{ id: ${index}, get isOpen() { return this.id === this.selected }, get isNextOpen() { return (this.id + 1) === this.selected } }`}
-                x-bind:class="{ 'bg-gradient-to-br from-[#ffffff05] to-[#ffffff00] border border-[#FFBD33]/30 shadow-[0_0_15px_rgba(255,189,51,0.05)]': isOpen, 'border border-transparent': !isOpen }"
+                class="group rounded-2xl bg-white dark:bg-primary-950/50 border border-primary-950/5 dark:border-primary-200/5 transition-all duration-300"
+                x-data={`{ id: ${index}, get isOpen() { return this.id === this.selected } }`}
+                x-bind:class="{ 'shadow-lg ring-1 ring-[#FFBD33]/50 scale-[1.01] bg-primary-50/50 dark:bg-primary-900/50': isOpen, 'hover:border-[#FFBD33]/30 hover:shadow-md': !isOpen }"
               >
-                <dt
-                  class="border-b text-lg transition"
-                  x-cloak
-                  x-bind:class="{ 'border-transparent': isOpen || isNextOpen, 'border-primary-900/10 dark:border-primary-300/10': !(isOpen || isNextOpen) }"
-                >
+                <dt>
                   <button
                     type="button"
-                    class="group block w-full py-6 text-left transition focus-visible:outline-none"
+                    class="flex w-full items-center justify-between py-6 px-6 text-left focus-visible:outline-none"
                     aria-controls={question.id}
                     x-on:click="toggle(id)"
                     aria-expanded="false"
                     x-bind:aria-expanded="isOpen.toString()"
                   >
-                    <div class="group-focus-visible:outline-primary-950 dark:group-focus-visible:outline-primary-200 flex items-center justify-between rounded-3xl group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2">
-                      <span class="font-medium">{question.title}</span>
-                      <span class="ml-6 flex h-7 items-center">
-                        <svg
-                          class="h-6 w-6 transform transition duration-200 ease-in-out"
-                          x-bind:class="{ '-rotate-180 text-[#FFBD33]': isOpen, 'rotate-0 text-primary-600 dark:text-primary-400': !isOpen }"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z" />
-                        </svg>
+                    <span 
+                        class="font-medium text-lg text-primary-950 dark:text-primary-200 transition-colors"
+                        x-bind:class="{ 'text-[#FFBD33] font-bold': isOpen }"
+                    >
+                        {question.title}
+                    </span>
+                    <span class="ml-6 flex items-center">
+                      <span 
+                        class="flex h-8 w-8 items-center justify-center rounded-full border border-primary-950/10 dark:border-primary-200/10 transition-colors"
+                        x-bind:class="{ 'bg-[#FFBD33] border-[#FFBD33] text-primary-950': isOpen, 'text-primary-400': !isOpen }"
+                      >
+                          <svg
+                            class="h-4 w-4 transform transition-transform duration-300"
+                            x-bind:class="{ 'rotate-180': isOpen, 'rotate-0': !isOpen }"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path d="M6 9l6 6 6-6" />
+                          </svg>
                       </span>
-                    </div>
+                    </span>
                   </button>
                 </dt>
                 <dd class="" id={question.id} x-show="isOpen" x-cloak x-collapse>
-                  <div class="pb-6 pr-6">
-                    <p class="text-primary-950/70 dark:text-primary-200/70 text-base">
+                  <div class="px-6 pb-6 pt-2">
+                    <p class="text-primary-950/70 dark:text-primary-200/70 text-base leading-relaxed">
                       {question.answer}
                     </p>
                   </div>

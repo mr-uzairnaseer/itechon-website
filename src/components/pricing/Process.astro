@@ -39,8 +39,10 @@ const processSteps = [
       </h2>
       <div class="grid gap-8 lg:grid-cols-4">
         {
-          processSteps.map((item) => (
-            <div class="group relative flex flex-col gap-8 rounded-3xl bg-gradient-to-br from-[#ffffff05] to-[#ffffff00] border border-white/10 px-6 py-8 transition-all duration-300 hover:bg-[#ffffff08] hover:border-[#FFBD33]/50 hover:shadow-[0_0_20px_rgba(255,189,51,0.1)] hover:-translate-y-1">
+          processSteps.map((item, index) => (
+            <div 
+              class="scroll-reveal group relative flex flex-col gap-8 rounded-3xl bg-gradient-to-br from-[#ffffff05] to-[#ffffff00] border border-white/10 px-6 py-8 transition-all duration-300 hover:bg-[#ffffff08] hover:border-[#FFBD33]/50 hover:shadow-[0_0_20px_rgba(255,189,51,0.1)] hover:-translate-y-1"
+            >
               <div class="flex items-center justify-between">
                 <p class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-[#FFBD33] to-[#FFBD33]/10 opacity-50">{item.step}</p>
                  {/* Icon with Color Mask */}

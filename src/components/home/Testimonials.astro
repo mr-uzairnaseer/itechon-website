@@ -42,8 +42,10 @@ const testimonials = [
         class="divide-primary-900/10 dark:divide-primary-300/10 grid divide-y lg:grid-cols-3 lg:divide-x lg:divide-y-0"
       >
         {
-          testimonials.map((testimonial) => (
-            <figure class="mx-auto flex max-w-lg flex-col items-center gap-6 py-8 lg:px-8 lg:py-0">
+          testimonials.map((testimonial, index) => (
+            <figure 
+              class="scroll-reveal mx-auto flex max-w-lg flex-col items-center gap-6 py-8 lg:px-8 lg:py-0"
+            >
               <div class="flex flex-row gap-2">
                 {[...Array(5)].map(() => (
                   <svg

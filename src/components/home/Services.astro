@@ -94,10 +94,10 @@ const services = [
       </div>
       <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {
-          services.map((service) => (
+          services.map((service, index) => (
             <a
               href="#"
-              class="group relative flex flex-col gap-6 overflow-hidden rounded-3xl bg-gradient-to-br from-[#ffffff05] to-[#ffffff00] border border-white/10 px-6 py-8 transition-all duration-300 hover:bg-[#ffffff08] hover:border-[#FFBD33]/50 hover:shadow-[0_0_20px_rgba(255,189,51,0.1)]"
+              class="scroll-reveal group relative flex flex-col gap-6 overflow-hidden rounded-3xl bg-gradient-to-br from-[#ffffff05] to-[#ffffff00] border border-white/10 px-6 py-8 transition-all duration-300 hover:bg-[#ffffff08] hover:border-[#FFBD33]/50 hover:shadow-[0_0_20px_rgba(255,189,51,0.1)]"
             >
               {/* Top Right Arrow */}
               <div class="absolute right-6 top-8 text-[#FFBD33] opacity-20 blur-[1px] transition-all duration-500 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:blur-0 group-hover:opacity-100">

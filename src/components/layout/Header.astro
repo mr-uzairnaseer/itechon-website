@@ -148,20 +148,20 @@ import { developmentMenu, hireMenu } from '../../data/navigation';
       <!-- Desktop Contact Button with CSS Continuous Loop -->
       <a
         href="/contact"
-        class="hidden lg:block relative rounded-lg overflow-hidden group"
-        style="width: 140px; height: 44px;"
+        class="hidden lg:block relative rounded-lg overflow-hidden group ring-1 ring-inset ring-black/5 dark:ring-white/10"
+        style="width: 150px; height: 48px;"
       >
         <div class="animate-scrollUp absolute top-0 left-0 w-full h-[300%]">
              <!-- Slide 1: Contact Us -->
-             <div class="h-1/3 w-full bg-[#FFBD33] flex items-center justify-center text-sm font-bold text-[#000000] uppercase transition-colors hover:bg-[#ffb01f]">
+             <div class="h-1/3 w-full bg-[#FFBD33] flex items-center justify-center text-sm font-bold text-primary-950 uppercase tracking-wide transition-colors hover:bg-[#ffb01f]">
                 Contact Us
              </div>
              <!-- Slide 2: Hire Us -->
-             <div class="h-1/3 w-full bg-white flex items-center justify-center text-sm font-bold text-[#000000] uppercase transition-colors hover:bg-gray-100">
-                Hire Us
+             <div class="h-1/3 w-full bg-primary-100 dark:bg-primary-800 flex items-center justify-center text-sm font-bold text-primary-950 dark:text-white uppercase tracking-wide transition-colors">
+                Hire Team
              </div>
-             <!-- Slide 3: Contact Us (Clone for Loop) -->
-             <div class="h-1/3 w-full bg-[#FFBD33] flex items-center justify-center text-sm font-bold text-[#000000] uppercase transition-colors hover:bg-[#ffb01f]">
+             <!-- Slide 3: Contact Us (Clone) -->
+             <div class="h-1/3 w-full bg-[#FFBD33] flex items-center justify-center text-sm font-bold text-primary-950 uppercase tracking-wide transition-colors hover:bg-[#ffb01f]">
                 Contact Us
              </div>
         </div>
@@ -407,23 +407,16 @@ import { developmentMenu, hireMenu } from '../../data/navigation';
 </style>
 
 <style>
-    /* Ultra-Smooth Keyframes for infinite scroll effect */
+    /* Continuous seamless scroll */
     @keyframes infiniteScroll {
-        0%, 30% { 
-            transform: translateY(0); 
-            animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
-        }
-        50%, 80% { 
-            transform: translateY(-33.33%); 
-            animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
-        }
-        100% { 
-            transform: translateY(-66.66%); 
-        }
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-66.666%); } /* Moves past first two items */
     }
     
     .animate-scrollUp {
-        height: 300%; /* 3 items tall */
-        animation: infiniteScroll 4s linear infinite;
+        height: 300%; 
+        animation: infiniteScroll 6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
     }
+    
+    /* Pause on hover if desired, but for "Call to Action" mostly better to keep moving or pause? user didn't ask, but let's keep it moving to grab attention. */
 </style>
