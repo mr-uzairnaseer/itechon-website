@@ -21,7 +21,16 @@ const articles = [
 ];
 ---
 
-<section class="py-16 sm:py-20">
+<section class="py-16 sm:py-20 bg-black/60 relative overflow-hidden">
+  <!-- Top Gradient Separator -->
+  <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  
+  <!-- Bottom Gradient Separator -->
+  <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  <!-- Related Articles Background Glow -->
+  <div class="absolute inset-0 -z-10 pointer-events-none">
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-gradient-to-t from-[#FFBD33]/5 to-transparent opacity-30"></div>
+  </div>
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <div class="flex flex-col gap-12 sm:gap-16">
       

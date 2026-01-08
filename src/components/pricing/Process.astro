@@ -31,7 +31,16 @@ const processSteps = [
 ];
 ---
 
-<section class="py-16 sm:py-20 relative overflow-hidden">
+<section class="py-16 sm:py-20 relative overflow-hidden bg-black/60">
+  <!-- Top Gradient Separator -->
+  <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  
+  <!-- Bottom Gradient Separator -->
+  <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  <!-- Process Background Glow -->
+  <div class="absolute inset-0 -z-10 pointer-events-none flex justify-center">
+    <div class="h-full w-[1px] bg-gradient-to-b from-transparent via-[#FFBD33]/10 to-transparent"></div>
+  </div>
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8 relative z-10">
     <div class="flex flex-col gap-12 sm:gap-16">
       <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-center">

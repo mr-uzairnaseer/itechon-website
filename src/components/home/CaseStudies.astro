@@ -99,7 +99,16 @@ const caseStudies = [
 ];
 ---
 
-<section class="py-16 sm:py-20" id="case-studies">
+<section class="py-16 sm:py-20 relative overflow-hidden bg-black/60" id="case-studies">
+  <!-- Top Gradient Separator -->
+  <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  
+  <!-- Bottom Gradient Separator -->
+  <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  <!-- Case Studies Background Glow -->
+  <div class="absolute inset-0 -z-10 pointer-events-none">
+    <div class="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-primary-800/10 blur-[120px] rounded-full mix-blend-screen opacity-30"></div>
+  </div>
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <div
       class="flex flex-col gap-12"

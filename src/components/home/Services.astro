@@ -83,7 +83,16 @@ const services = [
 ];
 ---
 
-<section class="py-16 sm:py-20">
+<section class="py-16 sm:py-20 relative overflow-hidden bg-black/60">
+  <!-- Top Gradient Separator -->
+  <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  
+  <!-- Bottom Gradient Separator -->
+  <div class="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+  <!-- Services Background Glow -->
+  <div class="absolute inset-0 -z-10 pointer-events-none flex items-center justify-center">
+    <div class="w-[80%] h-[80%] bg-primary-800/10 blur-[120px] rounded-full mix-blend-screen opacity-40"></div>
+  </div>
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <div class="flex flex-col gap-12 sm:gap-16">
       <div class="flex flex-col gap-4 text-center">
