@@ -111,7 +111,7 @@ import { developmentMenu, hireMenu } from '../../data/navigation';
       <!-- Toggle theme mode -->
       <button
         type="button"
-        class="text-primary-950 dark:text-primary-200 hover:bg-primary-500/10 dark:hover:bg-primary-400/10 ring-primary-950 inline-flex h-14 w-14 items-center justify-center rounded-full transition focus:outline-none focus-visible:ring-2"
+        class="hidden text-primary-950 dark:text-primary-200 hover:bg-primary-500/10 dark:hover:bg-primary-400/10 ring-primary-950 inline-flex h-14 w-14 items-center justify-center rounded-full transition focus:outline-none focus-visible:ring-2"
         x-data
         @click="$store.theme.toggle()"
       >
@@ -145,12 +145,26 @@ import { developmentMenu, hireMenu } from '../../data/navigation';
       </button>
 
       <!-- Desktop Contact Button -->
+      <!-- Desktop Contact Button with CSS Continuous Loop -->
       <a
         href="/contact"
-        class="hidden lg:inline-flex items-center justify-center rounded-lg bg-[#FFBD33] px-6 py-2.5 text-sm font-bold transition hover:bg-[#ffb01f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFBD33]"
-        style="color: #000000 !important;"
+        class="hidden lg:block relative rounded-lg overflow-hidden group"
+        style="width: 140px; height: 44px;"
       >
-        CONTACT US
+        <div class="animate-scrollUp absolute top-0 left-0 w-full h-[300%]">
+             <!-- Slide 1: Contact Us -->
+             <div class="h-1/3 w-full bg-[#FFBD33] flex items-center justify-center text-sm font-bold text-[#000000] uppercase transition-colors hover:bg-[#ffb01f]">
+                Contact Us
+             </div>
+             <!-- Slide 2: Hire Us -->
+             <div class="h-1/3 w-full bg-white flex items-center justify-center text-sm font-bold text-[#000000] uppercase transition-colors hover:bg-gray-100">
+                Hire Us
+             </div>
+             <!-- Slide 3: Contact Us (Clone for Loop) -->
+             <div class="h-1/3 w-full bg-[#FFBD33] flex items-center justify-center text-sm font-bold text-[#000000] uppercase transition-colors hover:bg-[#ffb01f]">
+                Contact Us
+             </div>
+        </div>
       </a>
 
       <!-- Toggle menu -->
@@ -375,3 +389,41 @@ import { developmentMenu, hireMenu } from '../../data/navigation';
     </div>
   </div>
 </header>
+
+<style>
+  @keyframes scrollUp {
+    0%, 45% {
+      transform: translateY(0);
+    }
+    50%, 95% {
+      transform: translateY(-50%);
+    }
+    100% {
+      transform: translateY(-50%); /* To make it loop, we might need a clone or just alternate. But let's simplify for "infinite" direction.*/
+    }
+  }
+  /* Wait, for a true loop we need: Contact -> Hire -> Contact (Clone) */
+  /* Let's adjust the structure and keyframes */
+</style>
+
+<style>
+    /* Ultra-Smooth Keyframes for infinite scroll effect */
+    @keyframes infiniteScroll {
+        0%, 30% { 
+            transform: translateY(0); 
+            animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+        }
+        50%, 80% { 
+            transform: translateY(-33.33%); 
+            animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+        }
+        100% { 
+            transform: translateY(-66.66%); 
+        }
+    }
+    
+    .animate-scrollUp {
+        height: 300%; /* 3 items tall */
+        animation: infiniteScroll 4s linear infinite;
+    }
+</style>
