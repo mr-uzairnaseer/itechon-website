@@ -1,0 +1,31 @@
+---
+interface Props {
+  industries: string[];
+}
+
+const { industries } = Astro.props;
+---
+
+<section class="py-24 sm:py-32 relative overflow-hidden bg-black/60">
+    <!-- Top Divider -->
+    <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+    
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col items-center gap-12 text-center">
+      <div class="flex flex-col gap-4">
+          <span class="text-[#FFBD33] font-bold tracking-widest uppercase text-sm">Sectors</span>
+          <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-white">Industries We Innovate For</h2>
+      </div>
+      
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-6 w-full max-w-5xl">
+        {industries.map(industry => (
+           <div class="group relative px-8 py-5 rounded-2xl bg-white/[0.02] border border-white/10 hover:border-[#FFBD33]/50 hover:bg-white/[0.08] hover:-translate-y-1 transition-all duration-300 cursor-default">
+             <span class="text-lg font-medium text-white group-hover:text-[#FFBD33] transition-colors">{industry}</span>
+             <!-- Glow Effect -->
+             <div class="absolute inset-0 rounded-2xl bg-[#FFBD33]/5 opacity-0 group-hover:opacity-100 transition-opacity blur-md -z-10"></div>
+           </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

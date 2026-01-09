@@ -1,0 +1,59 @@
+---
+interface Item {
+  title: string;
+  content: string;
+}
+
+interface Props {
+  title: string;
+  items: Item[];
+}
+
+const { title, items } = Astro.props;
+---
+
+<section class="py-16 sm:py-24 relative overflow-hidden bg-black/20">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-white inline-block">
+        <span class="border-b-4 border-[#FFBD33] pb-2">{title}</span>
+      </h2>
+    </div>
+
+    <div class="flex flex-col gap-4" x-data="{ active: null }">
+      {items.map((item, index) => (
+        <div class="rounded-2xl bg-white/5 border border-white/10 overflow-hidden transition-all duration-300 hover:border-[#FFBD33]/30">
+          <button 
+            @click={`active = active === ${index} ? null : ${index}`}
+            class="w-full flex items-center justify-between p-6 text-left cursor-pointer group"
+          >
+            <span class="text-lg font-medium text-white group-hover:text-[#FFBD33] transition-colors">{item.title}</span>
+            <span class="flex-shrink-0 ml-4">
+              <svg 
+                class="w-6 h-6 text-[#FFBD33] transition-transform duration-300"
+                :class={`{ 'rotate-180': active === ${index} }`}
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </button>
+          
+          <div 
+            x-show={`active === ${index}`}
+            x-collapse
+            class="px-6 pb-6"
+          >
+            <p class="text-primary-200/80 leading-relaxed border-t border-white/10 pt-4">
+              {item.content}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

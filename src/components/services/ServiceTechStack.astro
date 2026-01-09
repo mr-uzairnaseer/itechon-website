@@ -1,0 +1,52 @@
+---
+interface Props {
+  techCategories: {
+    category: string;
+    techs: string[]; // List of tech names
+  }[];
+}
+
+const { techCategories } = Astro.props;
+---
+
+<section class="py-24 sm:py-32 relative overflow-hidden bg-[#0c0a09]">
+   <!-- Top Divider -->
+   <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+   
+   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+     <div class="flex flex-col gap-16 lg:grid lg:grid-cols-12 lg:gap-24">
+        <!-- Sidebar intro -->
+        <div class="lg:col-span-4 flex flex-col gap-6">
+             <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-white">Technology Stack</h2>
+             <p class="text-primary-200/60 text-lg leading-relaxed">
+                We don't just use tools; we master frameworks. Our engineering stack is chosen for scalability, security, and speed.
+             </p>
+             <div class="w-16 h-1 bg-[#FFBD33] rounded-full"></div>
+        </div>
+        
+        <!-- Tech Grid -->
+        <div class="lg:col-span-8 flex flex-col gap-10">
+            {techCategories.map(cat => (
+                <div class="group relative bg-white/[0.03] rounded-2xl p-8 border border-white/5 hover:border-[#FFBD33]/30 transition-all duration-300">
+                    <div class="flex flex-col md:flex-row gap-6 md:items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                            <span class="w-2 h-2 rounded-full bg-[#FFBD33]"></span>
+                            {cat.category}
+                        </h3>
+                         <div class="h-[1px] flex-1 bg-white/10 hidden md:block"></div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-3">
+                        {cat.techs.map(tech => (
+                             <span class="px-5 py-2.5 rounded-lg bg-black/50 border border-white/10 text-primary-200 text-sm font-medium hover:border-[#FFBD33] hover:text-white hover:shadow-[0_0_15px_rgba(255,189,51,0.2)] transition-all cursor-default relative overflow-hidden group/tag">
+                                <span class="relative z-10">{tech}</span>
+                                <div class="absolute inset-0 bg-[#FFBD33] opacity-0 group-hover/tag:opacity-10 transition-opacity"></div>
+                             </span>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+     </div>
+  </div>
+</section>

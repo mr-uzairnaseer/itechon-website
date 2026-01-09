@@ -11,6 +11,17 @@ module.exports = {
       transparent: 'transparent',
       white: '#ffffff',
       primary: colors.stone,
+      teal: {
+        50: '#E6F6F5',
+        100: '#CDEHEC', // potential typo fix if needed, but sticking to brand request
+        400: '#4DDDD0',
+        500: '#08A698', // The requested brand color
+        600: '#06857A',
+        900: '#022C28',
+      },
+      yellow: {
+        500: '#FFBD33', // The requested brand accent
+      }
     },
     fontFamily: {
       sans: ['Inter', 'sans-serif'],

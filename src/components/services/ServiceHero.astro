@@ -1,0 +1,111 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  image?: string;
+  primaryBtnText?: string;
+  primaryBtnLink?: string;
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  image = '/assets/hero1.png', // Default image
+  primaryBtnText = 'Book Free Consultation',
+  primaryBtnLink = '/contact',
+} = Astro.props;
+---
+
+<section class="relative pt-32 sm:pt-40 pb-20 sm:pb-32 overflow-hidden">
+  <!-- Dynamic Background - Aurora Effect -->
+  <div class="absolute inset-0 -z-10 pointer-events-none">
+    <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-b from-[#FFBD33]/10 to-transparent blur-[120px] rounded-full mix-blend-screen opacity-60 animate-pulse-slow"></div>
+    <div class="absolute bottom-0 left-[-20%] w-[800px] h-[800px] bg-primary-800/20 blur-[120px] rounded-full mix-blend-screen opacity-40"></div>
+    <!-- Grid Pattern Overlay -->
+    <div class="absolute inset-0 bg-[url('/assets/grid-pattern.svg')] opacity-[0.03]"></div>
+  </div>
+
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8 w-full relative z-10">
+    <div class="flex flex-col gap-12 lg:grid lg:grid-cols-2 lg:gap-20 lg:items-center">
+      <!-- Text Content -->
+      <div class="flex flex-col items-start gap-8 sm:gap-10 opacity-0 translate-y-8 animate-fade-in-up">
+        <div class="flex flex-col gap-6">
+           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFBD33]/10 border border-[#FFBD33]/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#FFBD33] animate-pulse"></span>
+              <span class="text-[#FFBD33] font-bold tracking-widest uppercase text-xs sm:text-sm">{subtitle}</span>
+           </div>
+          <h1 class="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl text-white leading-[1.1]">
+            {title}
+          </h1>
+          <p class="text-primary-200/80 text-lg sm:text-xl leading-relaxed max-w-xl border-l-2 border-[#FFBD33]/30 pl-6">
+            {description}
+          </p>
+        </div>
+        
+        <div class="flex flex-wrap gap-4">
+            <a
+            href={primaryBtnLink}
+            class="group relative inline-flex items-center justify-center rounded-lg bg-[#FFBD33] px-8 py-4 text-base font-bold text-black transition-all hover:bg-[#ffb01f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFBD33] hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,189,51,0.3)] duration-300 overflow-hidden"
+            >
+             <span class="relative z-10">{primaryBtnText}</span>
+             <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+            </a>
+        </div>
+      </div>
+
+      <!-- Hero Visual - Glassmorphic Card -->
+      <div class="relative w-full aspect-[4/3] perspective-1000 group opacity-0 translate-y-8 animate-fade-in-up delay-200">
+         <div class="absolute inset-0 bg-gradient-to-tr from-[#FFBD33]/20 to-transparent rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
+         
+         <div class="relative h-full w-full rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden transform transition-transform duration-700 hover:rotate-y-2 hover:scale-[1.02] shadow-2xl">
+            <img
+              src={image}
+              alt={title}
+              class="absolute inset-0 w-full h-full object-cover opacity-80 mix-blend-overlay transition-transform duration-1000 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-transparent to-transparent opacity-80"></div>
+            
+            <!-- Floating Elements / UI Mockup hints -->
+            <div class="absolute bottom-8 left-8 right-8 p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div class="h-2 w-24 bg-[#FFBD33] rounded-full mb-3"></div>
+                <div class="h-2 w-full bg-white/20 rounded-full mb-2"></div>
+                <div class="h-2 w-2/3 bg-white/20 rounded-full"></div>
+            </div>
+         </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bottom Fade -->
+  <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-primary-950 to-transparent"></div>
+</section>
+
+<style>
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .rotate-y-2 {
+    transform: rotateY(-2deg) rotateX(2deg);
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-pulse-slow {
+      animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+</style>

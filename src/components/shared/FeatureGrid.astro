@@ -1,0 +1,66 @@
+---
+interface Feature {
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  features: Feature[];
+  columns?: 2 | 3 | 4;
+}
+
+const { title, description, features, columns = 4 } = Astro.props;
+
+// Map column count to grid classes
+const gridCols = {
+  2: 'sm:grid-cols-2',
+  3: 'sm:grid-cols-2 lg:grid-cols-3',
+  4: 'sm:grid-cols-2 lg:grid-cols-4',
+};
+---
+
+<section class="py-16 sm:py-24 relative overflow-hidden">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-12 sm:gap-16">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col gap-4 max-w-4xl">
+        <h2 class="text-3xl font-medium tracking-tight sm:text-4xl text-left text-white">
+          <span class="border-b-4 border-[#FFBD33] pb-2">{title}</span>
+        </h2>
+        {description && (
+          <p class="text-primary-200/70 text-lg sm:text-xl text-left mt-4">
+            {description}
+          </p>
+        )}
+      </div>
+
+      <!-- Grid -->
+      <div class={`grid gap-8 ${gridCols[columns]}`}>
+        {features.map((feature) => (
+          <div class="group relative flex flex-col gap-4 overflow-hidden rounded-3xl bg-white/5 border border-white/10 px-6 py-8 transition-all duration-300 hover:bg-white/10 hover:border-[#FFBD33]/50 hover:shadow-[0_0_20px_rgba(255,189,51,0.1)]">
+            
+            {/* Icon if available */}
+            {feature.icon && (
+               <div class="h-12 w-12 text-[#FFBD33] mb-2" set:html={feature.icon} />
+             )}
+
+            <h3 class="text-xl font-bold text-white group-hover:text-[#FFBD33] transition-colors duration-300">
+              {feature.title}
+            </h3>
+            
+            <p class="text-primary-200/70 text-base leading-relaxed">
+              {feature.description}
+            </p>
+
+            <!-- Animated Bottom Line -->
+            <div class="absolute bottom-0 left-0 h-1.5 w-full origin-left scale-x-0 bg-[#FFBD33] transition-transform duration-500 ease-in-out group-hover:scale-x-100" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

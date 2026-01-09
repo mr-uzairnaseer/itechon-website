@@ -1,0 +1,66 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  capabilities: {
+    title: string;
+    description: string;
+    icon?: string; 
+  }[];
+}
+
+const { title, subtitle, capabilities } = Astro.props;
+---
+
+<section class="py-24 sm:py-32 relative overflow-hidden bg-black/80">
+     <!-- Top Divider -->
+     <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#FFBD33]/50 to-transparent box-shadow-[0_0_20px_#FFBD33]"></div>
+
+  <!-- Background Glow -->
+  <div class="absolute inset-0 -z-10 pointer-events-none">
+     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-primary-900/30 blur-[150px] rounded-full mix-blend-screen"></div>
+  </div>
+
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-16 sm:gap-24">
+      <div class="flex flex-col gap-6 text-center max-w-3xl mx-auto">
+        <span class="text-[#FFBD33] font-bold tracking-widest uppercase text-sm border-b-2 border-[#FFBD33] w-fit mx-auto pb-1">{subtitle}</span>
+        <h2 class="text-4xl font-bold tracking-tight sm:text-5xl text-white">
+          {title}
+        </h2>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {capabilities.map((item, index) => (
+          <div class="group relative flex flex-col gap-6 rounded-3xl bg-[#1a1a1a] border border-white/5 p-8 transition-all duration-500 hover:bg-[#222] hover:-translate-y-2 hover:shadow-[0_10px_40px_-10px_rgba(255,189,51,0.1)] overflow-hidden">
+             
+             <!-- Hover Gradient -->
+             <div class="absolute inset-0 bg-gradient-to-br from-[#FFBD33]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+             
+             <!-- Number Watermark -->
+             <div class="absolute top-4 right-6 text-8xl font-black text-white/[0.02] group-hover:text-white/[0.05] transition-colors pointer-events-none select-none">
+                 {String(index + 1).padStart(2, '0')}
+             </div>
+
+             <!-- Icon Container -->
+             <div class="relative h-14 w-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#FFBD33] group-hover:text-black group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                </svg>
+             </div>
+             
+            <div class="relative flex flex-col gap-4">
+              <h3 class="text-2xl font-bold text-white group-hover:text-[#FFBD33] transition-colors">{item.title}</h3>
+              <p class="text-primary-200/60 leading-relaxed text-base group-hover:text-primary-200/80 transition-colors">
+                {item.description}
+              </p>
+            </div>
+            
+            <!-- Bottom Line -->
+            <div class="absolute bottom-0 left-0 h-1 w-0 bg-[#FFBD33] transition-all duration-500 group-hover:w-full"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

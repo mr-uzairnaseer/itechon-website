@@ -1,0 +1,56 @@
+---
+---
+
+<section class="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden bg-[#111111] py-16 sm:py-24">
+  <!-- Hero Background Pattern (Localized) -->
+  <div class="absolute inset-0 -z-10 pointer-events-none">
+    <div class="absolute top-[10%] left-[20%] w-[600px] h-[600px] bg-[#FFBD33]/10 blur-[200px] rounded-full mix-blend-screen opacity-50"></div>
+    <div class="absolute bottom-[10%] right-[20%] w-[500px] h-[500px] bg-white/5 blur-[180px] rounded-full mix-blend-overlay"></div>
+    
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0 bg-[url('/assets/grid-pattern.svg')] bg-center opacity-10 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]"></div>
+  </div>
+
+  <div class="container relative z-10 mx-auto px-4 text-center">
+    <!-- Icon Container -->
+    <div class="mb-8 flex justify-center">
+      <div class="relative group">
+         <div class="absolute inset-0 animate-ping rounded-full bg-[#FFBD33]/20 duration-1000"></div>
+        <div class="relative flex h-24 w-24 items-center justify-center rounded-2xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10 shadow-xl ring-1 ring-[#FFBD33]/20">
+           <!-- Code / Development Icon -->
+           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFBD33" class="h-12 w-12">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 18" />
+           </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <h1 class="mb-6 text-4xl font-medium tracking-tight text-white sm:text-6xl lg:text-7xl">
+      Work in <span class="text-[#FFBD33] font-bold">Progress</span>.
+    </h1>
+    
+    <p class="mx-auto mb-10 max-w-2xl text-lg text-primary-200/70 sm:text-xl leading-relaxed">
+      We are engineering a <span class="font-bold text-white">custom experience</span> for this page. 
+      Check back soon as we build something extraordinary.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <a
+        href="/"
+        class="inline-flex items-center justify-center rounded-lg bg-[#FFBD33] px-8 py-3 text-base font-bold text-black transition hover:bg-[#ffb01f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FFBD33] hover:-translate-y-1 hover:shadow-lg hover:shadow-[#FFBD33]/20 duration-300"
+        style="color: #000000 !important;"
+      >
+        Return Home
+      </a>
+      
+      <a
+        href="/contact"
+         class="inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-8 py-3 text-base font-medium text-white transition hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+      >
+        Contact Team
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+import UnderConstruction from '../components/UnderConstruction.astro';
+import { developmentMenu, hireMenu } from '../data/navigation';
+
+export function getStaticPaths() {
+  // Start with manual pages that we know might be visited
+  const paths = [
+    'about',
+    'contact',
+    'services',
+    'blog',
+    'careers',
+    'privacy-policy',
+    'terms-of-service',
+    'portfolio',
+    'case-studies',
+    'team',
+    'activities',
+    // Categories often linked
+    'ai-data-automation',
+    'ecommerce-cms',
+    'enterprise-solutions',
+    'technology-assurance',
+    'web-mobile',
+    'relyshore-delivery',
+    'core-tech-expertise',
+    'full-portfolio',
+  ];
+
+  // Extract all hrefs from developmentMenu
+  developmentMenu.forEach(category => {
+    category.items.forEach(item => {
+        const slug = item.href.replace(/^\//, ''); // Remove leading slash
+        if (slug && slug !== '#') {
+            paths.push(slug);
+        }
+    });
+  });
+
+   // Extract all hrefs from hireMenu
+   hireMenu.forEach(category => {
+    category.items.forEach(item => {
+        const slug = item.href.replace(/^\//, ''); // Remove leading slash
+        if (slug && slug !== '#') {
+            paths.push(slug);
+        }
+    });
+  });
+
+  // Deduplicate using Set
+  const uniquePaths = [...new Set(paths)];
+
+  return uniquePaths.map((slug) => {
+    return { params: { slug } };
+  });
+}
+
+const { slug } = Astro.params;
+
+// Helper to format slug into readable title
+function formatSlug(str) {
+  return str
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+// Try to find the official name in navigation menus
+let pageTitle = formatSlug(slug || 'Under Construction');
+let pageDescription = `The ${pageTitle} page is currently under construction. Check back soon for updates.`;
+
+// Search in Development Menu
+for (const category of developmentMenu) {
+  const found = category.items.find(item => item.href === `/${slug}`);
+  if (found) {
+    pageTitle = found.name;
+    pageDescription = `Professional ${found.name} services by ITECHON. We are building a new experience for this page.`;
+    break;
+  }
+}
+
+// Search in Hire Menu if not found
+if (pageTitle === formatSlug(slug || '')) {
+  for (const category of hireMenu) {
+    const found = category.items.find(item => item.href === `/${slug}`);
+    if (found) {
+      pageTitle = found.name;
+      pageDescription = `Hire dedicated ${found.name.replace('Hire ', '')}. Top rated developers available for your project.`;
+      break;
+    }
+  }
+}
+---
+
+<Layout title={`${pageTitle} | ITECHON`} description={pageDescription}>
+  <UnderConstruction />
+</Layout>

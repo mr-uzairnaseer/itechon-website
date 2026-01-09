@@ -1,0 +1,57 @@
+---
+interface Props {
+  process: {
+    step: string;
+    title: string;
+    description: string;
+  }[];
+}
+
+const { process } = Astro.props;
+---
+
+<section class="py-24 sm:py-32 relative overflow-hidden bg-primary-950">
+     <!-- Top Divider -->
+     <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-16 sm:gap-24">
+      <div class="flex flex-col gap-6 text-center">
+        <span class="text-[#FFBD33] font-bold tracking-widest uppercase text-sm">Process</span>
+        <h2 class="text-4xl font-bold tracking-tight sm:text-5xl text-white">How We Deliver</h2>
+      </div>
+
+      <div class="relative max-w-4xl mx-auto w-full">
+        <!-- Connecting Line -->
+        <div class="absolute left-8 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#FFBD33] via-[#FFBD33]/20 to-transparent lg:left-1/2 lg:-translate-x-1/2"></div>
+
+        <div class="flex flex-col gap-16">
+          {process.map((step, index) => (
+            <div class={`relative flex flex-col lg:flex-row gap-8 lg:gap-20 items-start ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''} group`}>
+              
+              <!-- Timeline Dot -->
+              <div class="absolute left-8 -translate-x-1/2 lg:left-1/2 lg:-translate-x-1/2 top-0 flex items-center justify-center">
+                  <div class="w-16 h-16 rounded-full bg-[#0c0a09] border-[3px] border-[#FFBD33] flex items-center justify-center relative z-10 shadow-[0_0_20px_rgba(255,189,51,0.3)] group-hover:scale-110 transition-transform duration-300">
+                      <span class="text-xl font-bold text-white font-mono">{step.step}</span>
+                  </div>
+              </div>
+
+               <!-- Content -->
+              <div class="w-full lg:w-[calc(50%-40px)] pl-24 lg:pl-0">
+                 <div class={`flex flex-col gap-4 p-8 rounded-3xl bg-white/[0.02] border border-white/10 hover:bg-white/[0.05] hover:border-[#FFBD33]/50 transition-all duration-300 ${index % 2 === 0 ? 'lg:text-right lg:items-end' : 'lg:text-left lg:items-start'}`}>
+                    <h3 class="text-2xl font-bold text-white group-hover:text-[#FFBD33] transition-colors">{step.title}</h3>
+                    <p class="text-primary-200/70 leading-relaxed text-base">
+                      {step.description}
+                    </p>
+                 </div>
+              </div>
+              
+              <!-- Empty space for alternate side -->
+              <div class="hidden lg:block w-[calc(50%-40px)]"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -4,81 +4,97 @@ const services = [
     name: 'Digital Transformation',
     icon: '/assets/digital-transformation.svg',
     description: 'Reimagine your business with digital-first strategies.',
+    slug: '/services/digital-transformation'
   },
   {
     name: 'Artificial Intelligence',
     icon: '/assets/ai.svg',
     description: 'Empower your systems with intelligent decision-making.',
+    slug: '/services/ai'
   },
   {
     name: 'Machine Learning',
     icon: '/assets/ml.svg',
     description: 'Algorithms that learn and adapt to your data.',
+    slug: '/services/ml'
   },
   {
     name: 'Cloud & DevOps',
     icon: '/assets/devops.svg',
     description: 'Scalable infrastructure and streamlined deployment pipelines.',
+    slug: '/services/cloud-devops'
   },
   {
     name: 'MVP Development',
     icon: '/assets/mvp-dev.svg',
     description: 'Launch your product vision quickly and effectively.',
+    slug: '/services/mvp-development'
   },
   {
     name: 'Product Engineering',
     icon: '/assets/software-product-eng.svg',
     description: 'End-to-end development of robust software products.',
+    slug: '/services/product-engineering'
   },
   {
     name: 'Process Automation',
     icon: '/assets/process-automation.svg',
     description: 'Automate repetitive workflows for efficiency.',
+    slug: '/services/process-automation'
   },
   {
     name: 'Data Analytics',
     icon: '/assets/data-analytics.svg',
     description: 'Turn raw data into actionable insights.',
+    slug: '/services/data-analytics'
   },
   {
     name: 'Mobile Apps',
     icon: '/assets/mobile-apps.svg',
     description: 'Native and cross-platform mobile experiences.',
+    slug: '/services/mobile-apps'
   },
   {
     name: 'Website & Web Apps',
     icon: '/assets/website-web-apps.svg',
     description: 'High-performance websites and web applications.',
+    slug: '/services/web-apps'
   },
   {
     name: 'eCommerce & CMS',
     icon: '/assets/ecommerce.svg',
     description: 'Scalable online stores and content management systems.',
+    slug: '/services/ecommerce-cms'
   },
   {
     name: 'SaaS / PaaS',
     icon: '/assets/saas.svg',
     description: 'Cloud-based software and platform solutions.',
+    slug: '/services/saas-paas'
   },
   {
     name: 'ERP & CRM',
     icon: '/assets/erp.svg',
     description: 'Enterprise resource planning and customer management.',
+    slug: '/services/erp-crm'
   },
   {
     name: 'Software Maintenance',
     icon: '/assets/software-maintenance.svg',
     description: 'Keep your software running smoothly and securely.',
+    slug: '/services/software-maintenance'
   },
   {
     name: 'QA Testing Automation',
     icon: '/assets/qa-testing.svg',
     description: 'Ensure bug-free, high-quality releases.',
+    slug: '/services/qa-testing'
   },
   {
     name: 'UI/UX Design',
     icon: '/assets/ui-ux-design.svg',
     description: 'Intuitive and engaging user interfaces.',
+    slug: '/services/ui-ux'
   },
 ];
 ---
@@ -107,7 +123,7 @@ const services = [
         {
           services.map((service, index) => (
             <a
-              href="#"
+              href={service.slug}
               class="scroll-reveal group relative flex flex-col gap-6 overflow-hidden rounded-3xl bg-gradient-to-br from-[#ffffff05] to-[#ffffff00] border border-white/10 px-6 py-8 transition-all duration-300 hover:bg-[#ffffff08] hover:border-[#FFBD33]/50 hover:shadow-[0_0_20px_rgba(255,189,51,0.1)]"
             >
               {/* Top Right Arrow */}

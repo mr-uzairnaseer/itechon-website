@@ -68,17 +68,38 @@ const socialImage = new URL(image, Astro.site);
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "ITECHON",
-        "url": "https://itechon.com",
-        "logo": "https://itechon.com/assets/ITECHON.png",
-        "description": "Global Software Engineering, IT Consulting & Software Development Outsourcing Company",
-        "sameAs": [],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "contactType": "Customer Service",
-          "availableLanguage": ["English"]
-        }
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://itechon.com/#organization",
+            "name": "ITECHON",
+            "url": "https://itechon.com",
+            "logo": "https://itechon.com/assets/ITECHON.png",
+            "sameAs": [
+              "https://linkedin.com/company/itechon",
+              "https://twitter.com/itechon",
+              "https://facebook.com/itechon"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+92-311-6877887",
+              "contactType": "customer service",
+              "areaServed": "Global",
+              "availableLanguage": "English"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://itechon.com/#website",
+            "url": "https://itechon.com",
+            "name": "ITECHON",
+            "description": "Global Software Engineering & IT Consulting Company",
+            "publisher": {
+              "@id": "https://itechon.com/#organization"
+            },
+            "inLanguage": "en-US"
+          }
+        ]
       }
     </script>
     
@@ -165,32 +186,36 @@ const socialImage = new URL(image, Astro.site);
       window.Alpine = Alpine;
       Alpine.start();
       
-      // Global Scroll Observer
-      const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-      };
+      // Robust Scroll Observer for View Transitions
+      function setupObserver() {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target); // Only animate once
-          }
-        });
-      }, observerOptions);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-      document.addEventListener('DOMContentLoaded', () => {
         const animatedElements = document.querySelectorAll('.scroll-reveal');
         animatedElements.forEach(el => observer.observe(el));
-      });
+      }
+
+      // Initial load - Handle both DOMContentLoaded and immediate execution if ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupObserver);
+      } else {
+        setupObserver();
+      }
       
-      // Re-observe on view transitions if using Astro ViewTransitions
-      document.addEventListener('astro:page-load', () => {
-         const animatedElements = document.querySelectorAll('.scroll-reveal');
-         animatedElements.forEach(el => observer.observe(el));
-      });
+      // Handle View Transitions (subsequent navigations)
+      document.addEventListener('astro:page-load', setupObserver);
     </script>
   </body>
 </html>
