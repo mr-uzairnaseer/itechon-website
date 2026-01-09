@@ -98,7 +98,7 @@ const processFile = (filePath) => {
 
     const heroImgMatch = content.match(PATTERNS.heroImage);
     const heroImgRaw = heroImgMatch ? heroImgMatch[1] : null;
-    const heroImg = copyImage(heroImgRaw, pageName) || '/assets/hero.webp';
+    const heroImg = copyImage(heroImgRaw, pageName) || '/assets/itechon.png';
 
     // Extract Services
     const services = [];
